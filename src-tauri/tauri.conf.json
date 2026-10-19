@@ -1,0 +1,80 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "RecordToCD",
+  "mainBinaryName": "record-to-cd",
+  "version": "0.1.0",
+  "identifier": "io.github.bunnmei.recordtocd",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "レコード録音",
+        "width": 1200,
+        "height": 860,
+        "minWidth": 1000,
+        "minHeight": 700,
+        "center": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' ipc: http://ipc.localhost; img-src 'self' asset: http://asset.localhost data:; media-src 'self' asset: http://asset.localhost; style-src 'self' 'unsafe-inline'",
+      "assetProtocol": {
+        "enable": true,
+        "scope": [
+          "$APPDATA/**"
+        ]
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "Music",
+    "shortDescription": "レコードを録音して、曲ごとに分けて、CDに焼くアプリ",
+    "longDescription": "USB端子つきのレコードプレーヤーの音を録音し、曲と曲のあいだの無音で自動的に曲を分けて、音楽CDを作ったり、WAV・MP3で保存したりできます。",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "linux": {
+      "deb": {
+        "depends": [
+          "cdrskin",
+          "libasound2 | libasound2t64"
+        ],
+        "desktopTemplate": "./linux/app.desktop"
+      },
+      "rpm": {
+        "depends": [
+          "cdrskin",
+          "alsa-lib"
+        ],
+        "desktopTemplate": "./linux/app.desktop"
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "11.0",
+      "entitlements": "./entitlements.plist",
+      "signingIdentity": "-"
+    },
+    "windows": {
+      "nsis": {
+        "languages": [
+          "Japanese"
+        ],
+        "installMode": "currentUser"
+      },
+      "wix": {
+        "language": "ja-JP"
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Categories={{categories}}
+Comment=レコードを録音して、曲ごとに分けて、CDに焼くアプリ
+Exec={{exec}}
+StartupWMClass={{exec}}
+Icon={{icon}}
+Name=レコード録音
+Name[ja]=レコード録音
+Terminal=false
+Type=Application

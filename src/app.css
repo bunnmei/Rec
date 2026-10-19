@@ -1,0 +1,357 @@
+/* 色はすべてここで決める。明るい画面・暗い画面とも、文字は背景に対して十分なコントラストにする。 */
+:root {
+  --bg: #eef0f5;
+  --surface: #ffffff;
+  --surface-2: #e6e9f0;
+  --surface-3: #f6f7fa;
+  --text: #14161b;
+  --text-muted: #434956;
+  --border: #868d9c;
+  --line: #d9dde6;
+  --primary: #1f5bd0;
+  --primary-hover: #1849ab;
+  --primary-soft: #e6eefc;
+  --on-primary: #ffffff;
+  --record: #c62828;
+  --record-hover: #a81f1f;
+  --record-soft: #fdecec;
+  --teal: #0b7566;
+  --teal-hover: #085e52;
+  --teal-soft: #e2f4f1;
+  --success: #1b6e35;
+  --success-soft: #e4f4e8;
+  --warn-bg: #fff4d1;
+  --warn-text: #574000;
+  --warn-border: #d1a300;
+  --error-bg: #fdecec;
+  --error-text: #8c1d18;
+  --focus: #e58a00;
+  --wave: #2f6fd6;
+  --wave-alt: #7b56c9;
+  --split: #d2361f;
+  --playhead: #13863c;
+  --track-band: rgba(31, 91, 208, 0.07);
+  --track-band-alt: rgba(123, 86, 201, 0.1);
+  --shadow: 0 1px 2px rgba(20, 25, 40, 0.06), 0 6px 20px rgba(20, 25, 40, 0.07);
+  --shadow-strong: 0 2px 4px rgba(20, 25, 40, 0.1), 0 10px 28px rgba(20, 25, 40, 0.14);
+  /* 録音中の「録音機の画面」。明るい画面でも暗くして、波形を見やすくする */
+  --display-bg: #0d1118;
+  --display-grid: #1c2330;
+  --display-text: #eef3ff;
+  --display-muted: #a9b4c8;
+  --display-wave: #4fc3ff;
+  --display-rec: #ff5a4f;
+  /* 上の帯 */
+  --header-bg: linear-gradient(120deg, #141925 0%, #1f2738 60%, #2a2233 100%);
+  --header-text: #ffffff;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0e13;
+    --surface: #161920;
+    --surface-2: #232733;
+    --surface-3: #1b1f28;
+    --text: #f1f3f8;
+    --text-muted: #c4c9d4;
+    --border: #7a8192;
+    --line: #2c3240;
+    --primary: #82b1ff;
+    --primary-hover: #a9c9ff;
+    --primary-soft: #1a2640;
+    --on-primary: #0a1630;
+    --record: #ff7b72;
+    --record-hover: #ff9a93;
+    --record-soft: #3a1a19;
+    --teal: #5fd4bf;
+    --teal-hover: #85e2d1;
+    --teal-soft: #12302b;
+    --success: #7ddc92;
+    --success-soft: #15301d;
+    --warn-bg: #362c05;
+    --warn-text: #ffe48f;
+    --warn-border: #a88400;
+    --error-bg: #3a1a19;
+    --error-text: #ffb4ab;
+    --focus: #ffb547;
+    --wave: #82b1ff;
+    --wave-alt: #c4a7f5;
+    --split: #ff8a65;
+    --playhead: #7ddc92;
+    --track-band: rgba(130, 177, 255, 0.08);
+    --track-band-alt: rgba(196, 167, 245, 0.1);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+    --shadow-strong: 0 2px 4px rgba(0, 0, 0, 0.5), 0 10px 28px rgba(0, 0, 0, 0.5);
+    --display-bg: #07090d;
+    --display-grid: #161b25;
+    --header-bg: linear-gradient(120deg, #0a0d14 0%, #151b28 60%, #1d1724 100%);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0c0e13;
+  --surface: #161920;
+  --surface-2: #232733;
+  --surface-3: #1b1f28;
+  --text: #f1f3f8;
+  --text-muted: #c4c9d4;
+  --border: #7a8192;
+  --line: #2c3240;
+  --primary: #82b1ff;
+  --primary-hover: #a9c9ff;
+  --primary-soft: #1a2640;
+  --on-primary: #0a1630;
+  --record: #ff7b72;
+  --record-hover: #ff9a93;
+  --record-soft: #3a1a19;
+  --teal: #5fd4bf;
+  --teal-hover: #85e2d1;
+  --teal-soft: #12302b;
+  --success: #7ddc92;
+  --success-soft: #15301d;
+  --warn-bg: #362c05;
+  --warn-text: #ffe48f;
+  --warn-border: #a88400;
+  --error-bg: #3a1a19;
+  --error-text: #ffb4ab;
+  --focus: #ffb547;
+  --wave: #82b1ff;
+  --wave-alt: #c4a7f5;
+  --split: #ff8a65;
+  --playhead: #7ddc92;
+  --track-band: rgba(130, 177, 255, 0.08);
+  --track-band-alt: rgba(196, 167, 245, 0.1);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.35);
+  --shadow-strong: 0 2px 4px rgba(0, 0, 0, 0.5), 0 10px 28px rgba(0, 0, 0, 0.5);
+  --display-bg: #07090d;
+  --display-grid: #161b25;
+  --header-bg: linear-gradient(120deg, #0a0d14 0%, #151b28 60%, #1d1724 100%);
+  color-scheme: dark;
+}
+
+/* 文字の大きさ：すべて rem で指定しているので、ここを変えるだけで全体が大きくなる */
+html {
+  font-size: 21px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+html[data-font="xlarge"] {
+  font-size: 25px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    "BIZ UDPGothic", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic UI", "Meiryo",
+    "Noto Sans CJK JP", "Noto Sans JP", sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.3;
+  letter-spacing: 0.02em;
+}
+
+p {
+  margin: 0;
+}
+
+input,
+select,
+textarea {
+  user-select: text;
+}
+
+/* ───── ボタン ───── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  min-height: 2.7rem;
+  padding: 0.35rem 1.15rem;
+  border: 2px solid var(--border);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.08s,
+    box-shadow 0.15s;
+}
+.btn:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+.btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.btn-primary,
+.btn-record,
+.btn-teal {
+  border-color: transparent;
+  color: var(--on-primary);
+  box-shadow: var(--shadow);
+}
+.btn-primary {
+  background: var(--primary);
+}
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+.btn-record {
+  background: var(--record);
+}
+.btn-record:hover:not(:disabled) {
+  background: var(--record-hover);
+}
+.btn-teal {
+  background: var(--teal);
+}
+.btn-teal:hover:not(:disabled) {
+  background: var(--teal-hover);
+}
+
+/* その時に押すべき、一番大きなボタン */
+.btn-big {
+  min-height: 4rem;
+  padding: 0.6rem 2.1rem;
+  font-size: 1.25rem;
+  border-radius: 1rem;
+}
+
+.btn-small {
+  min-height: 2.2rem;
+  padding: 0.2rem 0.85rem;
+  font-size: 0.9rem;
+}
+
+:focus-visible {
+  outline: 4px solid var(--focus);
+  outline-offset: 3px;
+}
+
+/* ───── 入力欄 ───── */
+.input {
+  width: 100%;
+  min-height: 2.5rem;
+  padding: 0.3rem 0.8rem;
+  border: 2px solid var(--border);
+  border-radius: 0.6rem;
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+}
+.input:focus {
+  border-color: var(--primary);
+}
+.input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.75;
+}
+
+/* ───── 枠・お知らせ ───── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1.1rem;
+  padding: 1.2rem 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.notice {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  padding: 0.75rem 1rem;
+  border-radius: 0.8rem;
+  border: 2px solid var(--warn-border);
+  background: var(--warn-bg);
+  color: var(--warn-text);
+  font-weight: 700;
+}
+.notice .icon {
+  margin-top: 0.25em;
+}
+.notice.error {
+  border-color: var(--error-text);
+  background: var(--error-bg);
+  color: var(--error-text);
+}
+.notice.success {
+  border-color: var(--success);
+  background: var(--success-soft);
+  color: var(--success);
+}
+.notice.info {
+  border-color: var(--line);
+  background: var(--surface-3);
+  color: var(--text);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.row {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.spacer {
+  flex: 1;
+}
+
+/* 進み具合のバー */
+.bar {
+  width: 100%;
+  height: 1.3rem;
+  border-radius: 0.65rem;
+  background: var(--surface-2);
+  overflow: hidden;
+}
+.bar > div {
+  height: 100%;
+  border-radius: 0.65rem;
+  background: linear-gradient(90deg, var(--primary), var(--teal));
+  transition: width 0.3s;
+}
+.bar.over > div {
+  background: var(--record);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

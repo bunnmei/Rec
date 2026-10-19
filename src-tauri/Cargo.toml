@@ -1,0 +1,44 @@
+[package]
+name = "record-to-cd"
+version = "0.1.0"
+description = "レコードを録音して曲ごとに分け、CDに焼くアプリ"
+authors = ["bunnmei"]
+edition = "2024"
+
+[lib]
+name = "record_to_cd_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+cpal = "0.18"
+hound = "3.5"
+symphonia = { version = "0.5", default-features = false, features = ["mp3", "flac", "wav", "pcm", "aac", "isomp4", "ogg", "vorbis", "adpcm"] }
+mp3lame-encoder = "0.2"
+keepawake = "0.6"
+dirs = "6"
+chrono = { version = "0.4", default-features = false, features = ["clock"] }
+
+[target.'cfg(windows)'.dependencies]
+windows = { version = "0.62", features = [
+  "Win32_Foundation",
+  "Win32_System_Com",
+  "Win32_Storage_Imapi",
+  "Win32_System_Ole",
+  "Win32_System_Variant",
+  "Win32_UI_Shell",
+] }
+windows-core = "0.62"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
